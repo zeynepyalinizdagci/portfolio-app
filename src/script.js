@@ -41,7 +41,7 @@ contactMeBtn.onclick = () => {
 
 //create reverse index
 let totalPages = pages.length;
-let pageNumber = totalPages;
+let pageNumber = 0;
 
 function reverseIndex() {
     pageNumber--;
@@ -54,17 +54,14 @@ function reverseIndex() {
 const backProfileBtn = document.querySelector('.back-profile');
 backProfileBtn.onclick = () => {
     pages.forEach((_, index) => {
-        reverseIndex();
-
         setTimeout(() => {
+            reverseIndex();
 
-
-            pages[index].classList.remove('turn');
-
+            pages[pageNumber].classList.remove('turn');
             setTimeout(() => {
                 reverseIndex();
                 pages[pageNumber].style.zIndex = 20 + index;
-            })
+            }, 500)
         }, (index + 1) * 200 + 100)
     });
 };
@@ -86,16 +83,13 @@ setTimeout(() => {
 }, 3200);
 
 pages.forEach((_, index) => {
-    reverseIndex();
-
-
     setTimeout(() => {
+        reverseIndex();
 
-        pages[index].classList.remove('turn');
-
+        pages[pageNumber].classList.remove('turn');
         setTimeout(() => {
             reverseIndex();
-            pages[pageNumber].style.zIndex = 10 + index;
-        })
+            pages[pageNumber].style.zIndex = 20 + index;
+        }, 500)
     }, (index + 1) * 200 + 2100)
 });

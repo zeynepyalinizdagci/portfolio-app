@@ -104,6 +104,17 @@ body {
 
 }
 
+.book-page {
+    transform-origin: left; /* Set pivot for left-to-right flip */
+    transition: transform 0.5s ease; /* Smooth turning transition */
+}
+
+/* Class to apply when a page is turned */
+.turn {
+    transform: rotateY(-180deg); /* Flip 180 degrees to simulate a page turn */
+}
+
+
 .book-page.page-left{
     box-shadow: -.6rem .6rem .6rem rgb(0, 0, 0, .1);
 }
